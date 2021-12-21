@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --header-bg: #1c1a23;
+  --header-bg-light: #1c1a23d3;
+  --header-text: #fff;
+  --text-main: #000;
+  --text-grey: #555;
+  --brand-main: #7500ff;
+  --brand-main-light: #871eff1a;
+  --action-success: #28a745;
+  --action-success-hover: #43cf63;
+  --action-danger: #dc3545;
+  --core-font: "DM Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--core-font);
+}
+
+label {
+  display: block;
+}
+
+[type="text"],
+select {
+  padding: 6px;
+  width: 100%;
+  border: 1px solid var(--text-grey);
+  font-family: var(--core-font);
+  font-size: 16px;
+}
+
+form,
+form > fieldset > fieldset {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  margin-top: 20px;
+}
+
+fieldset {
+  border: 1px;
+  border-style: solid;
+  border-color: var(--text-grey);
+}

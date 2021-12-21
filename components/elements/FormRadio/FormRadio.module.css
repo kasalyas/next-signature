@@ -1,0 +1,24 @@
+.outlineDark {
+  composes: outlineDark from "../Button/Button.module.css";
+}
+.outlineDark:hover {
+  border: 2px solid var(--brand-main);
+  color: var(--brand-main);
+  background-color: var(--header-text);
+}
+
+.hideInput {
+  appearance: none;
+  position: absolute;
+}
+
+.outlineDarkChecked:checked + label span {
+  border: 2px solid var(--brand-main);
+  color: var(--brand-main);
+  background-color: rgb(236, 236, 236);
+}
+
+.inputState {
+  composes: hideInput;
+  composes: outlineDarkChecked;
+}

@@ -1,0 +1,51 @@
+.button {
+  border: 0;
+  padding: 12px;
+  color: var(--header-text);
+  font-size: 16px;
+}
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.success {
+  composes: button;
+  background-color: var(--action-success);
+}
+.success:hover {
+  background-color: var(--action-success-hover);
+}
+
+.danger {
+  composes: button;
+  background-color: var(--action-danger);
+}
+
+.outlineHover:not(:disabled):hover {
+  background-color: var(--brand-main-light);
+}
+
+.outline {
+  composes: button;
+  border: 2px solid var(--brand-main);
+  color: var(--brand-main);
+  background-color: var(--header-text);
+  composes: outlineHover;
+}
+
+.outlineDark {
+  composes: button;
+  border: 2px solid var(--text-main);
+  color: var(--text-main);
+}
+
+.darkOnHover:not(:disabled):hover {
+  background-color: var(--header-bg-light);
+}
+.dark {
+  composes: button;
+  background: var(--header-bg);
+  color: var(--header-text);
+  composes: darkOnHover;
+}
