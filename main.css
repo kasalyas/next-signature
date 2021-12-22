@@ -26,6 +26,9 @@ body {
 label {
   display: block;
 }
+[type="checkbox"] + label {
+  display: inline;
+}
 
 [type="text"],
 select {
