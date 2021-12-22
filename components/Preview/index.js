@@ -128,8 +128,6 @@ const Preview = () => {
           ––––––––––––––––––––––––
         </NormalText>
 
-        <Spacer />
-
         {state.telephoneNumbers.map((field, index) => {
           if (field.name || field.number) {
             return (
@@ -145,10 +143,10 @@ const Preview = () => {
             <NormalText extraStyle={{ fontSize: "12px" }}>
               Office: {selectedOffice.number}
             </NormalText>
-            <Spacer />
           </>
         )}
 
+        <Spacer />
         <div
           style={{
             fontSize: "18px",
