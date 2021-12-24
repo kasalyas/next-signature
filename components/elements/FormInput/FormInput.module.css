@@ -1,3 +1,9 @@
 .help {
   font-size: 14px;
 }
+
+.required:after {
+  margin-left: 4px;
+  content: "*";
+  color: var(--action-danger);
+}

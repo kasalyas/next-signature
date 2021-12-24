@@ -30,7 +30,7 @@ const TelephoneFields = ({ field, index }) => {
         />
       </div>
       <div>
-        <label htmlFor={`office${index}`}>Number:</label>
+        <label htmlFor={`number${index}`}>Number:</label>
         <input
           name={`number${index}`}
           id={`number${index}`}

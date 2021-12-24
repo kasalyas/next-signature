@@ -4,7 +4,11 @@ import styles from "./FormInput.module.css";
 
 const FormInput = ({ name, label, required, helpText, ...rest }) => {
   const { dispatch } = useSignatureState();
-  const labelText = required ? `${label} *` : label;
+  const labelText = required ? (
+    <span className={styles.required}>{label}</span>
+  ) : (
+    label
+  );
   return (
     <div>
       <label htmlFor={name}>{labelText}</label>

@@ -7,7 +7,7 @@ import FormRadio from "../components/elements/FormRadio";
 import TelephoneFields from "../components/Telephone/TelephoneField";
 import TelephoneAddNumberButton from "../components/Telephone/TelephoneAddNumber";
 import Head from "next/head";
-import LOCATIONS from "../fixtures/locations";
+import LOCATIONS from "../data/locations";
 import Preview from "../components/Preview";
 import styles from "./Index.module.css";
 import radioStyles from "../components/elements/FormRadio/FormRadio.module.css";
@@ -67,7 +67,7 @@ const Form = () => {
         <FormCheckbox
           name="includeOffice"
           id="includeOffice"
-          label="Inlcude office number"
+          label="Include office number"
         />
       )}
       <fieldset>

@@ -1,4 +1,4 @@
-import LOCATIONS from "../../fixtures/locations";
+import LOCATIONS from "../../data/locations";
 import { useSignatureState } from "../context";
 import Button from "../elements/Button";
 import styles from "../elements/Button/Button.module.css";
@@ -11,7 +11,7 @@ const Spacer = () => (
   <div style={{ lineHeight: "12px", fontSize: "12px" }}>&nbsp;</div>
 );
 
-const NormalText = ({ children, extraStyles }) => (
+const NormalText = ({ children, extraStyles, ...rest }) => (
   <div
     style={{
       lineHeight: "18px",
@@ -20,6 +20,7 @@ const NormalText = ({ children, extraStyles }) => (
       fontFamily: "arial, sans-serif",
       ...extraStyles,
     }}
+    {...rest}
   >
     {children}
   </div>
@@ -131,7 +132,7 @@ const Preview = () => {
         {state.telephoneNumbers.map((field, index) => {
           if (field.name || field.number) {
             return (
-              <NormalText key={index}>
+              <NormalText key={index} data-testid="additionalNumbers">
                 {field.name}: {field.number}
               </NormalText>
             );
@@ -140,7 +141,7 @@ const Preview = () => {
 
         {state.includeOffice && (
           <>
-            <NormalText extraStyle={{ fontSize: "12px" }}>
+            <NormalText data-testid="selectedOfficeNumber">
               Office: {selectedOffice.number}
             </NormalText>
           </>
@@ -177,7 +178,7 @@ const Preview = () => {
 
         {state.region === "EU" && (
           <>
-            <div>
+            <div data-testid="socialLinks">
               <Link href="https://www.kinandcarta.com/en/">Web</Link> ·{" "}
               <Link href="https://www.linkedin.com/company/kin-and-carta-europe/">
                 LinkedIn
@@ -195,7 +196,7 @@ const Preview = () => {
 
         {state.marketingLink === "awards" && (
           <>
-            <div>
+            <div data-testid="marketingLinks">
               <Link
                 href="https://bcorporation.net/directory/kin-and-carta-europe"
                 strong={true}
@@ -230,6 +231,7 @@ const Preview = () => {
 
         {state.region === "EU" && (
           <NormalText
+            data-testid="signatureFooter"
             extraStyles={{
               fontSize: "11px",
               color: "#666",
