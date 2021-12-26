@@ -7,8 +7,9 @@
     "start-server": "npm run dev",
     "cy:open": "cypress open",
     "cy:run": "cypress run --quiet",
+    "build-start": "npm run build && npm run start",
     "test": "start-server-and-test start-server 3000 cy:open",
-    "test:ci": "start-server-and-test start 3000 cy:run"
+    "test:ci": "start-server-and-test build-start 3000 cy:run"
   },
   "dependencies": {
     "@tippyjs/react": "^4.2.6",
