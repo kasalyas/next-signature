@@ -1,0 +1,30 @@
+name: Vercel deploy development
+on:
+  push:
+    branches: [development]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout source code"
+        uses: actions/checkout@v2
+
+      - name: "Setup node version"
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          # cache: 'npm'
+
+      - name: "Build site"
+        run: |
+          npm ci
+          npm run test:ci
+
+      - "Deploy to vercel"
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          # github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
+          # vercel-args: "--prod" #Optional
+          vercel-org-id: ${{ secrets.ORG_ID}} #Required
+          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required
