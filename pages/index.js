@@ -6,7 +6,6 @@ import FormCheckbox from "../components/elements/FormCheckbox";
 import FormRadio from "../components/elements/FormRadio";
 import TelephoneFields from "../components/Telephone/TelephoneField";
 import TelephoneAddNumberButton from "../components/Telephone/TelephoneAddNumber";
-import Head from "next/head";
 import LOCATIONS from "../data/locations";
 import Preview from "../components/Preview";
 import styles from "./Index.module.css";
@@ -111,12 +110,6 @@ const TelephoneFieldsArray = () => {
 const Signature = () => {
   return (
     <Layout>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Josefin+Sans:wght@700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <div className={styles.container}>
         <Form />
         <Preview />
