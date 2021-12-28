@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import Form from "../components/signature/form";
 import Preview from "../components/signature/preview";
 import styles from "./index.module.css";
