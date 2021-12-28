@@ -1,6 +1,6 @@
-import { useSignatureState } from "../context";
-import Button from "../elements/Button";
-import styles from "../elements/Button/Button.module.css";
+import { useSignatureState } from "../../context";
+import Button from "../../elements/button";
+import styles from "../../elements/button/button.module.css";
 
 const TelephoneAddNumberButton = () => {
   const { dispatch } = useSignatureState();

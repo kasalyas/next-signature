@@ -1,6 +1,6 @@
 import { string } from "prop-types";
 import { useSignatureState } from "../../context";
-import styles from "./FormInput.module.css";
+import styles from "./formInput.module.css";
 
 const FormInput = ({ name, label, required, helpText, ...rest }) => {
   const { dispatch } = useSignatureState();

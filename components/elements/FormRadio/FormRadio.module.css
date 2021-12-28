@@ -1,5 +1,5 @@
 .outlineDark {
-  composes: outlineDark from "../Button/Button.module.css";
+  composes: outlineDark from "../button/button.module.css";
 }
 .outlineDark:hover {
   border: 2px solid var(--brand-main);

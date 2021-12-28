@@ -1,11 +1,11 @@
-import LOCATIONS from "../../data/locations";
-import { useSignatureState } from "../context";
-import Button from "../elements/Button";
-import styles from "../elements/Button/Button.module.css";
+import { useSignatureState } from "../../context";
 import copy from "copy-to-clipboard";
 import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
 import { forwardRef, useRef, useState } from "react";
+import LOCATIONS from "../../../data/locations";
+import Button from "../../elements/button";
+import styles from "../../elements/button/button.module.css";
+import "tippy.js/dist/tippy.css";
 
 const Spacer = () => (
   <div style={{ lineHeight: "12px", fontSize: "12px" }}>&nbsp;</div>

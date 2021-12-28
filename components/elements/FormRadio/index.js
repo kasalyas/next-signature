@@ -1,6 +1,6 @@
 import { string } from "prop-types";
 import { useSignatureState } from "../../context";
-import radioStyles from "./FormRadio.module.css";
+import radioStyles from "./formRadio.module.css";
 
 const FormRadio = ({ name, label, id, asButton, variant, ...rest }) => {
   const { state, dispatch } = useSignatureState();

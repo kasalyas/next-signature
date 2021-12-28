@@ -1,3 +1,4 @@
+import Head from "next/head";
 import SignatureState from "../components/context";
 import "../main.css";
 
@@ -5,6 +6,9 @@ import "../main.css";
 export default function MyApp({ Component, pageProps }) {
   return (
     <SignatureState>
+      <Head>
+        <title>Signature generator for Kin and Carta</title>
+      </Head>
       <Component {...pageProps} />
     </SignatureState>
   );

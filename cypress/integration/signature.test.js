@@ -5,6 +5,16 @@
 // check out the link below and learn how to write your first test:
 // https://on.cypress.io/writing-first-test
 
+describe("Signature layout", () => {
+  it("Test for header and footer", () => {
+    cy.visit("/");
+    cy.findByRole("banner", { name: "Kin + Carta" });
+    cy.findByRole("contentinfo").within(() => {
+      cy.findByText("© 2021 KIN AND CARTA PLC. ALL RIGHTS RESERVED");
+    });
+  });
+});
+
 describe("Signature form", () => {
   beforeEach(() => {
     cy.visit("/");

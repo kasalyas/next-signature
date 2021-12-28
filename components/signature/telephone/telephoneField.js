@@ -1,6 +1,6 @@
-import { useSignatureState } from "../context";
-import styles from "../elements/Button/Button.module.css";
-import stylez from "./Telephone.module.css";
+import { useSignatureState } from "../../context";
+import styles from "../../elements/button/button.module.css";
+import telStyles from "./telephone.module.css";
 
 /**
  * @todo Need to use the FormInput here but it should exclude the
@@ -47,7 +47,7 @@ const TelephoneFields = ({ field, index }) => {
           }
         />
       </div>
-      <div className={stylez.alignRight}>
+      <div className={telStyles.alignRight}>
         <button
           type="button"
           className={styles.danger}

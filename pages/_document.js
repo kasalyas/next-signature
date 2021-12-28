@@ -5,7 +5,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <title>Signature generator for Kin and Carta</title>
           <meta
             name="description"
             content="App to help generate K+C signatures"
