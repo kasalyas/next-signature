@@ -31,6 +31,8 @@ const signatureReducer = (state, action) => {
         }
       });
       return { ...state, telephoneNumbers: [...filteredNumbers] };
+    case "UPDATE_SIGNATURE_ELEMENT":
+      return { ...state, signatureRef: action.value };
     default:
       return {
         ...state,

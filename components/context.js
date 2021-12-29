@@ -27,6 +27,7 @@ const initialState = {
   ],
   includeOffice: false,
   marketingLink: "none",
+  signatureRef: null,
 };
 
 const SignatureState = ({ children }) => {

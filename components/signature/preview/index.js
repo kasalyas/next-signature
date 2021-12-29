@@ -1,11 +1,6 @@
-import { useSignatureState } from "../../context";
-import copy from "copy-to-clipboard";
-import Tippy from "@tippyjs/react";
-import { forwardRef, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import LOCATIONS from "../../../data/locations";
-import Button from "../../elements/button";
-import styles from "../../elements/button/button.module.css";
-import "tippy.js/dist/tippy.css";
+import { useSignatureState } from "../../context";
 
 const Spacer = () => (
   <div style={{ lineHeight: "12px", fontSize: "12px" }}>&nbsp;</div>
@@ -42,64 +37,23 @@ const Link = ({ children, bigger, strong, brandColor, ...props }) => (
   </a>
 );
 
-const CopyButton = forwardRef(
-  ({ label, style, format, forwardedRef, ...rest }, ref) => {
-    const [visible, setVisible] = useState(false);
-    return (
-      <Tippy content="Copied" visible={visible}>
-        <Button
-          type="button"
-          className={style}
-          ref={ref}
-          onClick={() => {
-            copy(forwardedRef.current.outerHTML, {
-              format,
-            });
-            setVisible(true);
-            setTimeout(() => {
-              setVisible(false);
-            }, 1500);
-          }}
-          {...rest}
-        >
-          {label}
-        </Button>
-      </Tippy>
-    );
-  }
-);
-
-const CopyButtons = ({ sigRef, name, title }) => {
-  return (
-    <div style={{ marginTop: "50px", display: "flex", gap: "30px" }}>
-      <CopyButton
-        label="Copy signature for Gmail"
-        style={styles.outline}
-        format="text/html"
-        forwardedRef={sigRef}
-        disabled={name && title ? false : true}
-      />
-      <CopyButton
-        label="Copy HTML"
-        style={styles.dark}
-        format="text/plain"
-        forwardedRef={sigRef}
-        disabled={name && title ? false : true}
-      />
-    </div>
-  );
-};
-
 const Preview = () => {
-  const { state } = useSignatureState();
+  const { state, dispatch } = useSignatureState();
   const { name, jobTitle, pronouns } = state;
   const sigRef = useRef(null);
   const selectedOffice = LOCATIONS.find(
     (office) => office.name === state.office
   );
-
+  useEffect(() => {
+    dispatch({
+      type: "UPDATE_SIGNATURE_ELEMENT",
+      value: sigRef,
+    });
+  }, []);
   return (
     <div>
+      <h2>Preview</h2>
+      <hr />
       <div ref={sigRef}>
         <Spacer />
         <Spacer />
@@ -154,7 +108,7 @@ const Preview = () => {
             lineHeight: "18px",
             color: "#000",
             display: "inline-block",
-            fontFamily: "Josefin Sans",
+            fontFamily: "Josefin Sans, arial, sans-serif",
             fontWeight: "bold",
           }}
         >
@@ -244,7 +198,7 @@ const Preview = () => {
           </NormalText>
         )}
       </div>
-      <CopyButtons sigRef={sigRef} name={state.name} title={state.jobTitle} />
+      {/* <CopyButtons sigRef={sigRef} name={state.name} title={state.jobTitle} /> */}
     </div>
   );
 };

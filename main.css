@@ -15,7 +15,8 @@
   --action-success: #107896;
   --action-success-hover: #22a8cf;
   --action-danger: #dc3545;
-  --core-font: "DM Sans", sans-serif;
+  --core-font: "DM Sans", arial, sans-serif;
+  --logo-font: "Josefin Sans", arial, sans-serif;
 }
 
 body {
