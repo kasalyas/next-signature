@@ -5,6 +5,8 @@
 // check out the link below and learn how to write your first test:
 // https://on.cypress.io/writing-first-test
 
+const SOCIAL_LINKS = ["Web", "LinkedIn", "Twitter", "Instagram", "Facebook"];
+
 describe("Signature layout", () => {
   it("Test for header and footer", () => {
     cy.visit("/");
@@ -21,6 +23,11 @@ describe("Signature form", () => {
   });
 
   it("Displays form fields for signature", () => {
+    cy.findByRole("heading", { name: "Signature generator" });
+    cy.findByText(
+      "Fill in the form and review the generated signature in the preview as you type. You can then copy the generated signature for Gmail or the raw HTML."
+    );
+
     cy.findByRole("textbox", { name: /name/i }).shouldHaveAttributes({
       name: "name",
       id: "name",
@@ -57,12 +64,21 @@ describe("Signature form", () => {
 describe("Signature preview", () => {
   it("Default preview elements", () => {
     cy.visit("/");
-    cy.findByText(/your name/i);
-    cy.findByText(/your job title/i);
-    cy.findByTestId("socialLinks");
+    cy.findByRole("heading", { name: /preview/i });
+    cy.findByText(/your name/i).should("have.attr", "style");
+    cy.findByText(/your job title/i).should("have.attr", "style");
+    cy.findByTestId("brandName").should("have.attr", "style");
+    cy.findByTestId("socialLinks").within(() => {
+      SOCIAL_LINKS.forEach((links) => {
+        cy.findByText(links).should("have.attr", "style");
+      });
+    });
     cy.findByTestId("marketingLinks").should("not.exist");
-    cy.findByText(/explore open roles at kin \+ carta europe/i);
-    cy.findByTestId("signatureFooter");
+    cy.findByText(/explore open roles at kin \+ carta europe/i).should(
+      "have.attr",
+      "style"
+    );
+    cy.findByTestId("signatureFooter").should("have.attr", "style");
     cy.findByRole("button", { name: /copy signature for gmail/i }).should(
       "be.disabled"
     );
@@ -101,7 +117,11 @@ describe("Signature form completion", () => {
     cy.findByRole("group", { name: /marketing link/i }).within(() => {
       cy.findByText(/awards/i).click();
     });
-    cy.findByTestId("marketingLinks");
+    cy.findByTestId("marketingLinks").within(() => {
+      cy.findAllByRole("link").should((link) => {
+        expect(link).to.have.lengthOf(2);
+      });
+    });
 
     cy.findByRole("button", { name: /copy signature for gmail/i }).should(
       "not.be.disabled"

@@ -103,6 +103,7 @@ const Preview = () => {
 
         <Spacer />
         <div
+          data-testid="brandName"
           style={{
             fontSize: "18px",
             lineHeight: "18px",
