@@ -1,4 +1,4 @@
-name: Deploy development
+name: Deploy to preview
 
 # Controls when a worklflow runs
 on:
