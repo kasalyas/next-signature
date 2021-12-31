@@ -22,6 +22,7 @@
 body {
   margin: 0;
   font-family: var(--core-font);
+  background-color: wheat;
 }
 
 label {
