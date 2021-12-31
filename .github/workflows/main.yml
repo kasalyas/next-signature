@@ -1,0 +1,21 @@
+name: Deploy main
+
+# Controls when a worklflow runs
+on:
+  push:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Deploy to vercel"
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-args: "--prod"
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
