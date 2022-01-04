@@ -1,6 +1,11 @@
 import { useEffect, useRef } from "react";
 import LOCATIONS from "../../../data/locations";
+import { getRegionByCode } from "../../../utils/getRegion";
 import { useSignatureState } from "../../context";
+import Link from "../../elements/link";
+import BrandName from "./brand";
+import Marketing from "./marketing";
+import Social from "./social";
 
 const Spacer = () => (
   <div style={{ lineHeight: "12px", fontSize: "12px" }}>&nbsp;</div>
@@ -21,22 +26,6 @@ const NormalText = ({ children, extraStyles, ...rest }) => (
   </div>
 );
 
-const Link = ({ children, bigger, strong, brandColor, ...props }) => (
-  <a
-    style={{
-      textDecoration: "underline",
-      lineHeight: "18px",
-      fontFamily: "arial, sans-serif",
-      fontSize: bigger ? "13px" : "12px",
-      color: brandColor ? "#7500ff" : "#000",
-      fontWeight: strong ? "bold" : "normal",
-    }}
-    {...props}
-  >
-    {children}
-  </a>
-);
-
 const Preview = () => {
   const { state, dispatch } = useSignatureState();
   const { name, jobTitle, pronouns } = state;
@@ -44,6 +33,7 @@ const Preview = () => {
   const selectedOffice = LOCATIONS.find(
     (office) => office.name === state.office
   );
+  const { websiteLocale } = getRegionByCode(state.region);
   useEffect(() => {
     dispatch({
       type: "UPDATE_SIGNATURE_ELEMENT",
@@ -102,79 +92,26 @@ const Preview = () => {
         )}
 
         <Spacer />
-        <div
-          data-testid="brandName"
-          style={{
-            fontSize: "18px",
-            lineHeight: "18px",
-            color: "#000",
-            display: "inline-block",
-            fontFamily: "Josefin Sans, arial, sans-serif",
-            fontWeight: "bold",
-          }}
-        >
-          KIN
-          <span
-            style={{
-              fontSize: "18px",
-              lineHeight: "18px",
-              color: "#000",
-              fontFamily: "arial, sans-serif",
-              fontWeight: "normal",
-              margin: "0 2px",
-            }}
-          >
-            +
-          </span>
-          CARTA
-        </div>
-
+        <BrandName />
         <Spacer />
 
         {state.region === "EU" && (
           <>
-            <div data-testid="socialLinks">
-              <Link href="https://www.kinandcarta.com/en/">Web</Link> ·{" "}
-              <Link href="https://www.linkedin.com/company/kin-and-carta-europe/">
-                LinkedIn
-              </Link>{" "}
-              · <Link href="https://twitter.com/kinandcarta_eu">Twitter</Link> ·{" "}
-              <Link href="https://www.instagram.com/kinandcarta_eu/">
-                Instagram
-              </Link>{" "}
-              ·{" "}
-              <Link href="https://www.facebook.com/kinandcarta">Facebook</Link>
-            </div>
+            <Social region={state.region} />
             <Spacer />
           </>
         )}
 
         {state.marketingLink === "awards" && (
           <>
-            <div data-testid="marketingLinks">
-              <Link
-                href="https://bcorporation.net/directory/kin-and-carta-europe"
-                strong={true}
-                bigger={true}
-              >
-                B Corp certified
-              </Link>{" "}
-              |{" "}
-              <Link
-                href="https://www.kinandcarta.com/en/insights/2021/08/2021-fast-company-innovation-award/"
-                strong={true}
-                bigger={true}
-              >
-                Fast Company's Best Workplace for Innovators 2021
-              </Link>
-            </div>
+            <Marketing />
             <Spacer />
           </>
         )}
 
         <div>
           <Link
-            href="https://www.kinandcarta.com/en/careers/"
+            href={`https://www.kinandcarta.com/${websiteLocale}/careers/`}
             brandColor={true}
             bigger={true}
           >
@@ -199,7 +136,6 @@ const Preview = () => {
           </NormalText>
         )}
       </div>
-      {/* <CopyButtons sigRef={sigRef} name={state.name} title={state.jobTitle} /> */}
     </div>
   );
 };

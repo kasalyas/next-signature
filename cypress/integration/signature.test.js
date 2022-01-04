@@ -1,6 +1,3 @@
-// checkingheading.test.js created with Cypress
-//
-// Start writing your Cypress tests below!
 // If you're unfamiliar with how Cypress works,
 // check out the link below and learn how to write your first test:
 // https://on.cypress.io/writing-first-test
@@ -74,10 +71,19 @@ describe("Signature preview", () => {
       });
     });
     cy.findByTestId("marketingLinks").should("not.exist");
+    /**
+     * @todo Need to merge these two checks
+     */
     cy.findByText(/explore open roles at kin \+ carta europe/i).should(
       "have.attr",
       "style"
     );
+    cy.findByText(/explore open roles at kin \+ carta europe/i).should(
+      "have.attr",
+      "href",
+      "https://www.kinandcarta.com/en/careers/"
+    );
+
     cy.findByTestId("signatureFooter").should("have.attr", "style");
     cy.findByRole("button", { name: /copy signature for gmail/i }).should(
       "be.disabled"
@@ -119,7 +125,7 @@ describe("Signature form completion", () => {
     });
     cy.findByTestId("marketingLinks").within(() => {
       cy.findAllByRole("link").should((link) => {
-        expect(link).to.have.lengthOf(2);
+        expect(link).to.have.lengthOf(1);
       });
     });
 
