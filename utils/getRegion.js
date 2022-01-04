@@ -1,4 +1,4 @@
-import regions from "../data/regions";
+import REGIONS from "../data/regions";
 
 export const getRegionByCode = (regionCode) =>
-  Object.values(regions).find(({ code }) => code === regionCode);
+  Object.values(REGIONS).find(({ code }) => code === regionCode);

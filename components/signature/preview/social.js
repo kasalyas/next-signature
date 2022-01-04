@@ -1,5 +1,5 @@
 import { string } from "prop-types";
-import social from "../../../data/social";
+import SOCIAL from "../../../data/social";
 import Link from "../../elements/link";
 import socialStyle from "./social.module.css";
 
@@ -10,8 +10,8 @@ const Bullet = () => (
 );
 
 const Social = ({ region }) => {
-  const { links: socials } = social[region?.toLowerCase()];
-  return social ? (
+  const { links: socials } = SOCIAL[region?.toLowerCase()];
+  return SOCIAL ? (
     <div className={socialStyle.inline} data-testid="socialLinks">
       {socials.map((social, index, socials) => (
         <span key={index}>

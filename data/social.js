@@ -1,4 +1,4 @@
-const social = {
+const SOCIAL = {
   eu: {
     links: [
       { name: "Web", url: "https://www.kinandcarta.com/en/" },
@@ -16,4 +16,4 @@ const social = {
   },
 };
 
-export default social;
+export default SOCIAL;

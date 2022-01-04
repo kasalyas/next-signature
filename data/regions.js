@@ -1,4 +1,4 @@
-const regions = {
+const REGIONS = {
   eu: {
     code: "EU",
     name: "Europe",
@@ -13,4 +13,4 @@ const regions = {
   },
 };
 
-export default regions;
+export default REGIONS;
