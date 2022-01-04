@@ -12,6 +12,11 @@
   position: absolute;
 }
 
+.outlineDarkChecked:focus + label span {
+  outline: 2px solid -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
 .outlineDarkChecked:checked + label span {
   border: 2px solid var(--brand-main);
   color: var(--brand-main);
