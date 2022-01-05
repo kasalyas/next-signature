@@ -34,7 +34,7 @@ const CopyButton = forwardRef(
 );
 
 const Copy = () => {
-  const { state, name, title } = useSignatureState();
+  const { state } = useSignatureState();
   return (
     <div
       style={{
@@ -48,14 +48,14 @@ const Copy = () => {
         label="Copy signature for Gmail"
         style={buttonStyles.outline}
         format="text/html"
-        disabled={name && title ? false : true}
+        disabled={state.name && state.jobTitle ? false : true}
         state={state}
       />
       <CopyButton
         label="Copy HTML"
         style={buttonStyles.dark}
         format="text/plain"
-        disabled={name && title ? false : true}
+        disabled={state.name && state.jobTitle ? false : true}
         state={state}
       />
     </div>
