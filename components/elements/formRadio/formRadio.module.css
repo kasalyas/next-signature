@@ -12,6 +12,10 @@
   position: absolute;
 }
 
+.outlineDarkChecked:not(:checked):hover + label span {
+  background-color: rgb(236, 236, 236);
+}
+
 .outlineDarkChecked:focus + label span {
   outline: 2px solid -webkit-focus-ring-color;
   outline-offset: -2px;
@@ -20,7 +24,6 @@
 .outlineDarkChecked:checked + label span {
   border: 2px solid var(--brand-main);
   color: var(--brand-main);
-  background-color: rgb(236, 236, 236);
 }
 
 .inputState {

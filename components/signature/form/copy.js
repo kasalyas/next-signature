@@ -33,7 +33,8 @@ const CopyButton = forwardRef(
   }
 );
 
-const CopyButtons = ({ state, name, title }) => {
+const Copy = () => {
+  const { state, name, title } = useSignatureState();
   return (
     <div
       style={{
@@ -59,11 +60,6 @@ const CopyButtons = ({ state, name, title }) => {
       />
     </div>
   );
-};
-
-const Copy = () => {
-  const { state } = useSignatureState();
-  return <CopyButtons state={state} name={state.name} title={state.jobTitle} />;
 };
 
 export default Copy;
