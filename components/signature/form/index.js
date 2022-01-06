@@ -36,7 +36,6 @@ const Form = () => {
         />
         <Region />
         <FormSelect name="office" label="Location" options={options} />
-        <Telephone />
         {state.office && (
           <FormCheckbox
             name="includeOffice"
@@ -44,6 +43,7 @@ const Form = () => {
             label="Include office number"
           />
         )}
+        <Telephone />
         <Marketing />
         <Copy />
       </form>
