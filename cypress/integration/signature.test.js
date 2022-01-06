@@ -4,19 +4,28 @@
 
 const SOCIAL_LINKS = ["Web", "LinkedIn", "Twitter", "Instagram", "Facebook"];
 
-describe("Signature layout", () => {
-  it("Test for header and footer", () => {
+describe("Signature", () => {
+  beforeEach(() => {
     cy.visit("/");
+  });
+  it("Initial state and layout", () => {
+    cy.window().should((win) => {
+      expect(JSON.parse(win.localStorage.getItem("store"))).to.deep.equal({
+        name: "",
+        jobTitle: "",
+        pronouns: "",
+        region: "EU",
+        office: "",
+        telephoneNumbers: [],
+        includeOffice: false,
+        marketingLink: "none",
+        signatureRef: null,
+      });
+    });
     cy.findByRole("banner", { name: "Kin + Carta" });
     cy.findByRole("contentinfo").within(() => {
       cy.findByText("© 2021 KIN AND CARTA PLC. ALL RIGHTS RESERVED");
     });
-  });
-});
-
-describe("Signature form", () => {
-  beforeEach(() => {
-    cy.visit("/");
   });
 
   it("Displays form fields for signature", () => {
@@ -56,11 +65,8 @@ describe("Signature form", () => {
     cy.findByRole("radio", { name: /none/i }).should("be.checked");
     cy.findByRole("radio", { name: /awards/i }).should("not.be.checked");
   });
-});
 
-describe("Signature preview", () => {
   it("Default preview elements", () => {
-    cy.visit("/");
     cy.findByRole("heading", { name: /preview/i });
     cy.findByText(/your name/i).should("have.attr", "style");
     cy.findByText(/your job title/i).should("have.attr", "style");
@@ -90,11 +96,8 @@ describe("Signature preview", () => {
     );
     cy.findByRole("button", { name: /copy html/i }).should("be.disabled");
   });
-});
 
-describe("Signature form completion", () => {
   it("Fills out user information and updates preview", () => {
-    cy.visit("/");
     cy.findByRole("textbox", { name: /name/i }).type("john");
     cy.findByText("john");
 
@@ -117,7 +120,7 @@ describe("Signature form completion", () => {
       cy.findByRole("textbox", { name: /number/i }).type("123456");
     });
     cy.findByText("connor: 123456");
-    cy.findByRole("button", { name: /delete this number/i }).click();
+    cy.findByRole("button", { name: /remove this number/i }).click();
     cy.findByText("connor: 123456").should("not.exist");
 
     cy.findByRole("group", { name: /marketing link/i }).within(() => {

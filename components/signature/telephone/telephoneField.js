@@ -58,7 +58,7 @@ const TelephoneFields = ({ field, index }) => {
             });
           }}
         >
-          Delete this number
+          Remove this number
         </button>
       </div>
     </fieldset>
