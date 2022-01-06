@@ -6,8 +6,7 @@ export const useSignatureState = () => useContext(SignatureStateContext);
 const SignatureStateContext = createContext();
 
 /**
- * We can use useEffect here to make a call to an endpoint and to get some
- * data back. For now this is hardcoded as initialState.
+ * Initial state, this could just as easily come from an api
  */
 const initialState = {
   name: "",
@@ -15,16 +14,7 @@ const initialState = {
   pronouns: "",
   region: "EU",
   office: "",
-  telephoneNumbers: [
-    // {
-    //   name: "Amsterdam",
-    //   number: "999888777",
-    // },
-    // {
-    //   name: "Saudi",
-    //   number: "444444444",
-    // },
-  ],
+  telephoneNumbers: [],
   includeOffice: false,
   marketingLink: "none",
   signatureRef: null,
