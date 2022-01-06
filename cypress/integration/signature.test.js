@@ -120,7 +120,7 @@ describe("Signature", () => {
       cy.findByRole("textbox", { name: /number/i }).type("123456");
     });
     cy.findByText("connor: 123456");
-    cy.findByRole("button", { name: /delete this number/i }).click();
+    cy.findByRole("button", { name: /remove this number/i }).click();
     cy.findByText("connor: 123456").should("not.exist");
 
     cy.findByRole("group", { name: /marketing link/i }).within(() => {
