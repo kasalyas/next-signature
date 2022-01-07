@@ -5,14 +5,12 @@
   color: var(--header-text);
 }
 
-.heading {
+.logo {
   margin: 0;
   font-weight: normal;
-  font-size: 18px;
-}
-
-.logo {
+  font-size: 20px;
   font-family: var(--logo-font);
+  color: var(--header-text);
 }
 
 .logo span {

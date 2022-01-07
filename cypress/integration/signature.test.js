@@ -22,7 +22,7 @@ describe("Signature", () => {
         signatureRef: null,
       });
     });
-    cy.findByRole("banner", { name: "Kin + Carta" });
+    cy.findByRole("banner");
     cy.findByRole("contentinfo").within(() => {
       cy.findByText("© 2021 KIN AND CARTA PLC. ALL RIGHTS RESERVED");
     });
