@@ -44,7 +44,7 @@ jobs:
 
       - name: "Build site"
         run: |
-          npm ci
+          npm install
           npm run test:ci
 
       - name: "Deploy to vercel"
