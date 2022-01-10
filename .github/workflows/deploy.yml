@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: "run: git config --local --get remote.origin.url"
+        run: git config --local --get remote.origin.url
 
       - name: "Setup node version"
         uses: actions/setup-node@v2
