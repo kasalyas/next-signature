@@ -44,13 +44,13 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: "Build site"
-        if: steps.cache.outputs.cache-hit != 'true'
+        # if: steps.cache.outputs.cache-hit != 'true'
         run: |
           npm install
           npm run test:ci
 
       - name: "Deploy to vercel"
-        if: steps.cache.outputs.cache-hit != 'true'
+        # if: steps.cache.outputs.cache-hit != 'true'
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
