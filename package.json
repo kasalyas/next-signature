@@ -2,13 +2,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "export": "next build && next export",
+    "build": "next build && next export -o docs/",
     "start": "next start",
     "start-server": "npm run dev",
     "cy:open": "cypress open",
     "cy:run": "cypress run --quiet",
-    "build-start": "npm run export && npm run start",
+    "build-start": "npm run build && npm run start",
     "test": "start-server-and-test start-server 3000 cy:open",
     "test:ci": "start-server-and-test build-start 3000 cy:run"
   },
