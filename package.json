@@ -2,14 +2,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export -o docs/ && npm run no-jekyll",
     "start": "next start",
     "start-server": "npm run dev",
     "cy:open": "cypress open",
     "cy:run": "cypress run --quiet",
+    "no-jekyll": "touch docs/.nojekyll",
     "build-start": "npm run build && npm run start",
-    "test": "start-server-and-test start-server 3000 cy:open",
-    "test:ci": "start-server-and-test build-start 3000 cy:run"
+    "test": "start-server-and-test start-server 3000 cy:open"
   },
   "dependencies": {
     "@tippyjs/react": "^4.2.6",
