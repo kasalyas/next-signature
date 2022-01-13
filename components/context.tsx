@@ -1,9 +1,10 @@
-import { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import signatureReducer from "./reducer";
 
-export const useSignatureState = () => useContext(SignatureStateContext);
+export const useSignatureState: React.FC = () =>
+  useContext(SignatureStateContext);
 
-const SignatureStateContext = createContext();
+const SignatureStateContext = createContext(null);
 
 /**
  * Initial state, this could just as easily come from an api

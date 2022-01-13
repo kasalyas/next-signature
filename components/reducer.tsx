@@ -1,4 +1,27 @@
-const signatureReducer = (state, action) => {
+type RegionTypes = "EU" | "US";
+
+type Action = {
+  type: string;
+  field: string;
+  value: string;
+  name: string;
+  index?: number;
+  number?: string;
+};
+
+type State = {
+  name: string;
+  jobTitle: string;
+  pronouns: string;
+  region: RegionTypes;
+  office: string;
+  telephoneNumbers: [{}];
+  includeOffice: boolean;
+  marketingLink: string;
+  signatureRef: null;
+};
+
+const signatureReducer = (state: State, action: Action) => {
   switch (action.type) {
     case "UPDATE_DETAILS":
       return {
