@@ -1,6 +1,6 @@
 # Read me
 
-This project is recreation of the signature app with NextJS. The aims are:
+This project is recreation of the [signature app](https://temp-cr-eu-email-signature.s3.eu-west-2.amazonaws.com/index.html?region=eu&marketing=none) with NextJS. The aims are:
 
 1. To keep the implementation as lean as possible ⚡️
 2. Include tests 🧪 to increase product confidence 💯
