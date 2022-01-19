@@ -7,7 +7,7 @@ const InlineRow = ({ children }) => (
   </div>
 );
 
-const Marketing = () => (
+const Marketing: React.FC = () => (
   <fieldset>
     <legend>Marketing link</legend>
     <InlineRow>

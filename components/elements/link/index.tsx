@@ -1,4 +1,15 @@
-const Link = ({ children, bigger, strong, brandColor, ...props }) => (
+import React from "react";
+
+interface LinkProps {
+  children: React.ReactNode;
+  bigger?: boolean;
+  strong?: boolean;
+  brandColor?: boolean;
+}
+
+const Link: React.FC<
+  LinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+> = ({ children, bigger, strong, brandColor, ...props }) => (
   <a
     style={{
       textDecoration: "underline",

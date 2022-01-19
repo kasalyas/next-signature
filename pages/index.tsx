@@ -5,7 +5,7 @@ import Preview from "../components/signature/preview";
 import styles from "./index.module.css";
 
 const Signature: React.FC = () => {
-  const { state } = useSignatureState(null);
+  const { state } = useSignatureState();
   useEffect(() => {
     window.localStorage.setItem("store", JSON.stringify(state));
   }, []);

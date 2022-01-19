@@ -6,8 +6,18 @@ import { useSignatureState } from "../../context";
 import Button from "../../elements/button";
 import buttonStyles from "../../elements/button/button.module.css";
 
+type formatType = "text/html" | "text/plain";
+
+interface CopyButtonProps {
+  label: string;
+  style: any;
+  format: formatType;
+  state: any;
+  disabled: boolean;
+}
+
 const CopyButton = forwardRef(
-  ({ label, style, format, state, ...rest }, ref) => {
+  ({ label, style, format, state, ...rest }: CopyButtonProps, ref) => {
     const [visible, setVisible] = useState(false);
     return (
       <Tippy content="Copied" visible={visible}>
@@ -33,7 +43,7 @@ const CopyButton = forwardRef(
   }
 );
 
-const Copy = () => {
+const Copy: React.FC = () => {
   const { state } = useSignatureState();
   return (
     <div

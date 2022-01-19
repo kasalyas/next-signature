@@ -1,15 +1,14 @@
 import React, { createContext, useContext, useReducer } from "react";
-import signatureReducer from "./reducer";
+import signatureReducer, { State } from "./reducer";
 
-export const useSignatureState: React.FC = () =>
-  useContext(SignatureStateContext);
+export const useSignatureState = () => useContext(SignatureStateContext);
 
 const SignatureStateContext = createContext(null);
 
 /**
  * Initial state, this could just as easily come from an api
  */
-const initialState = {
+const initialState: State = {
   name: "",
   jobTitle: "",
   pronouns: "",

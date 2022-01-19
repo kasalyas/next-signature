@@ -1,7 +1,21 @@
-import { arrayOf, element, string } from "prop-types";
 import { useSignatureState } from "../../context";
 
-const FormSelect = ({ name, label, required, helpText, options, ...rest }) => {
+interface FormSelectProps {
+  name: string;
+  label: string;
+  options: JSX.Element[];
+  required?: true;
+  helpText?: string;
+}
+
+const FormSelect = ({
+  name,
+  label,
+  required,
+  helpText,
+  options,
+  ...rest
+}: FormSelectProps) => {
   const { dispatch } = useSignatureState();
   const labelText = required ? `${label} *` : label;
   return (
@@ -25,12 +39,6 @@ const FormSelect = ({ name, label, required, helpText, options, ...rest }) => {
       {helpText && <div>{helpText}</div>}
     </div>
   );
-};
-
-FormSelect.propTypes = {
-  name: string.isRequired,
-  label: string.isRequired,
-  options: arrayOf(element).isRequired,
 };
 
 export default FormSelect;

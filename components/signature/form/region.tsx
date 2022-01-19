@@ -7,7 +7,7 @@ const InlineRow = ({ children }) => (
   </div>
 );
 
-const Region = () => (
+const Region: React.FC = () => (
   <fieldset>
     <legend>Region</legend>
     <InlineRow>

@@ -1,4 +1,3 @@
-import { string } from "prop-types";
 import SOCIAL from "../../../data/social";
 import Link from "../../elements/link";
 import socialStyle from "./social.module.css";
@@ -9,7 +8,11 @@ const Bullet = () => (
   </span>
 );
 
-const Social = ({ region }) => {
+interface SocialProps {
+  region: string;
+}
+
+const Social = ({ region }: SocialProps) => {
   const { links: socials } = SOCIAL[region?.toLowerCase()];
   return SOCIAL ? (
     <div className={socialStyle.inline} data-testid="socialLinks">
@@ -21,10 +24,6 @@ const Social = ({ region }) => {
       ))}
     </div>
   ) : null;
-};
-
-Social.propTypes = {
-  region: string.isRequired,
 };
 
 export default Social;

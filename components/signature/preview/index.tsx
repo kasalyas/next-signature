@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import LOCATIONS from "../../../data/locations";
 import { getRegionByCode } from "../../../utils/getRegion";
 import { useSignatureState } from "../../context";
@@ -11,7 +11,12 @@ const Spacer = () => (
   <div style={{ lineHeight: "12px", fontSize: "12px" }}>&nbsp;</div>
 );
 
-const NormalText = ({ children, extraStyles, ...rest }) => (
+interface NormalTextProps {
+  children: React.ReactNode;
+  extraStyles?: any;
+}
+
+const NormalText = ({ children, extraStyles, ...rest }: NormalTextProps) => (
   <div
     style={{
       lineHeight: "18px",
@@ -26,7 +31,7 @@ const NormalText = ({ children, extraStyles, ...rest }) => (
   </div>
 );
 
-const Preview = () => {
+const Preview: React.FC = () => {
   const { state, dispatch } = useSignatureState();
   const { name, jobTitle, pronouns } = state;
   const sigRef = useRef(null);

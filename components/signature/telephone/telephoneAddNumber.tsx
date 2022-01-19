@@ -1,8 +1,9 @@
+import React from "react";
 import { useSignatureState } from "../../context";
 import Button from "../../elements/button";
 import styles from "../../elements/button/button.module.css";
 
-const TelephoneAddNumberButton = () => {
+const TelephoneAddNumberButton: React.FC = () => {
   const { dispatch } = useSignatureState();
   return (
     <div>

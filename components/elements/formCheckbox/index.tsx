@@ -1,7 +1,12 @@
-import { string } from "prop-types";
 import { useSignatureState } from "../../context";
 
-const FormCheckbox = ({ name, label, id, ...rest }) => {
+interface FormCheckboxProps {
+  name: string;
+  label: string;
+  id: string;
+}
+
+const FormCheckbox = ({ name, label, id, ...rest }: FormCheckboxProps) => {
   const { state, dispatch } = useSignatureState();
   return (
     <div>
@@ -22,11 +27,6 @@ const FormCheckbox = ({ name, label, id, ...rest }) => {
       <label htmlFor={id}>{label}</label>
     </div>
   );
-};
-
-FormCheckbox.propTypes = {
-  name: string.isRequired,
-  label: string.isRequired,
 };
 
 export default FormCheckbox;

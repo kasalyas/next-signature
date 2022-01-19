@@ -1,4 +1,9 @@
-type RegionTypes = "EU" | "US";
+import { RegionTypes } from "./types";
+
+type telephoneType = {
+  name: string;
+  number: number;
+};
 
 type Action = {
   type: string;
@@ -6,20 +11,20 @@ type Action = {
   value: string;
   name: string;
   index?: number;
-  number?: string;
+  number?: number;
 };
 
-type State = {
+export interface State {
   name: string;
   jobTitle: string;
   pronouns: string;
   region: RegionTypes;
   office: string;
-  telephoneNumbers: [{}];
+  telephoneNumbers: telephoneType[];
   includeOffice: boolean;
   marketingLink: string;
   signatureRef: null;
-};
+}
 
 const signatureReducer = (state: State, action: Action) => {
   switch (action.type) {

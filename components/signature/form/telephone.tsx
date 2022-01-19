@@ -8,14 +8,14 @@ const TelephoneFieldsArray = () => {
   } = useSignatureState();
   return (
     <>
-      {telephoneNumbers?.map((field, index) => {
-        return <TelephoneFields key={index} field={field} index={index} />;
-      })}
+      {telephoneNumbers?.map((field, index) => (
+        <TelephoneFields key={index} field={field} index={index} />
+      ))}
     </>
   );
 };
 
-const Telephone = () => (
+const Telephone: React.FC = () => (
   <fieldset>
     <legend>Telephone numbers</legend>
     <TelephoneAddNumberButton />

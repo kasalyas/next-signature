@@ -1,8 +1,20 @@
-import { string } from "prop-types";
 import { useSignatureState } from "../../context";
 import styles from "./formInput.module.css";
 
-const FormInput = ({ name, label, required, helpText, ...rest }) => {
+interface FormInputProps {
+  name: string;
+  label: string;
+  required?: boolean;
+  helpText?: string;
+}
+
+const FormInput = ({
+  name,
+  label,
+  required,
+  helpText,
+  ...rest
+}: FormInputProps) => {
   const { dispatch } = useSignatureState();
   const labelText = required ? (
     <span className={styles.required}>{label}</span>
@@ -33,11 +45,6 @@ const FormInput = ({ name, label, required, helpText, ...rest }) => {
       )}
     </div>
   );
-};
-
-FormInput.propTypes = {
-  name: string.isRequired,
-  label: string.isRequired,
 };
 
 export default FormInput;

@@ -1,8 +1,25 @@
-import { string } from "prop-types";
 import { useSignatureState } from "../../context";
+import { CheckboxTypes } from "../../types";
 import radioStyles from "./formRadio.module.css";
 
-const FormRadio = ({ name, label, id, asButton, variant, ...rest }) => {
+interface FormRadioProps {
+  name: string;
+  label: string;
+  id?: string;
+  asButton?: boolean;
+  variant?: any;
+  value?: CheckboxTypes;
+}
+
+const FormRadio = ({
+  name,
+  label,
+  id,
+  asButton,
+  variant,
+  value,
+  ...rest
+}: FormRadioProps) => {
   const { state, dispatch } = useSignatureState();
 
   return (
@@ -11,15 +28,15 @@ const FormRadio = ({ name, label, id, asButton, variant, ...rest }) => {
         name={name}
         id={id}
         type="radio"
-        onChange={(evt) => {
+        onChange={() =>
           dispatch({
             type: "UPDATE_DETAILS",
             field: name,
-            value: evt.target.value,
-          });
-        }}
+            value,
+          })
+        }
         className={asButton && radioStyles.inputState}
-        checked={state[name] === rest.value}
+        checked={state[name] === value}
         {...rest}
       />
       <label htmlFor={id}>
@@ -27,11 +44,6 @@ const FormRadio = ({ name, label, id, asButton, variant, ...rest }) => {
       </label>
     </div>
   );
-};
-
-FormRadio.propTypes = {
-  name: string.isRequired,
-  label: string.isRequired,
 };
 
 export default FormRadio;

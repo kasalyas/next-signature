@@ -8,7 +8,17 @@ import telStyles from "./telephone.module.css";
  * for the consumer 😬
  */
 
-const TelephoneFields = ({ field, index }) => {
+type telephoneNumberType = {
+  name: string;
+  number: string;
+};
+
+interface TelephoneFieldsTypeProps {
+  field: telephoneNumberType;
+  index: number;
+}
+
+const TelephoneFields = ({ field, index }: TelephoneFieldsTypeProps) => {
   const { dispatch } = useSignatureState();
   return (
     <fieldset>

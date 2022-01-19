@@ -1,4 +1,4 @@
-const BrandName = () => (
+const BrandName: React.FC = () => (
   <div
     data-testid="brandName"
     style={{

@@ -5,7 +5,7 @@ import SignatureState from "../components/context";
 import Layout from "../components/layout";
 import "../main.css";
 
-// This default export is required in a new `pages/_app.js` file.
+// This default export is required in a new `pages/_app.tsx` file.
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SignatureState>
