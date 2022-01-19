@@ -1,4 +1,4 @@
-import { RegionTypes } from "./types";
+import { CheckboxTypes } from "./types";
 
 type telephoneType = {
   name: string;
@@ -18,7 +18,7 @@ export interface State {
   name: string;
   jobTitle: string;
   pronouns: string;
-  region: RegionTypes;
+  region: CheckboxTypes;
   office: string;
   telephoneNumbers: telephoneType[];
   includeOffice: boolean;
