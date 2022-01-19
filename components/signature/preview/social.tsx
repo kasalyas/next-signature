@@ -1,8 +1,9 @@
+import React from "react";
 import SOCIAL from "../../../data/social";
 import Link from "../../elements/link";
 import socialStyle from "./social.module.css";
 
-const Bullet = () => (
+const Bullet: React.FC = () => (
   <span aria-hidden className={socialStyle.bullet}>
     {"   "}&#8226;{"   "}
   </span>
@@ -12,7 +13,7 @@ interface SocialProps {
   region: string;
 }
 
-const Social = ({ region }: SocialProps) => {
+const Social: React.FC<SocialProps> = ({ region }) => {
   const { links: socials } = SOCIAL[region?.toLowerCase()];
   return SOCIAL ? (
     <div className={socialStyle.inline} data-testid="socialLinks">

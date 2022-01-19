@@ -2,7 +2,7 @@ import { useSignatureState } from "../../context";
 import TelephoneAddNumberButton from "../telephone/telephoneAddNumber";
 import TelephoneFields from "../telephone/telephoneField";
 
-const TelephoneFieldsArray = () => {
+const TelephoneFieldsArray: React.FC = () => {
   const {
     state: { telephoneNumbers },
   } = useSignatureState();

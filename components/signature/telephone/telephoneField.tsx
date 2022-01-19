@@ -18,7 +18,10 @@ interface TelephoneFieldsTypeProps {
   index: number;
 }
 
-const TelephoneFields = ({ field, index }: TelephoneFieldsTypeProps) => {
+const TelephoneFields: React.FC<TelephoneFieldsTypeProps> = ({
+  field,
+  index,
+}) => {
   const { dispatch } = useSignatureState();
   return (
     <fieldset>

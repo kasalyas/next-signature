@@ -16,7 +16,11 @@ interface NormalTextProps {
   extraStyles?: any;
 }
 
-const NormalText = ({ children, extraStyles, ...rest }: NormalTextProps) => (
+const NormalText: React.FC<NormalTextProps> = ({
+  children,
+  extraStyles,
+  ...rest
+}) => (
   <div
     style={{
       lineHeight: "18px",

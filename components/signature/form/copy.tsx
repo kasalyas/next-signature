@@ -1,6 +1,6 @@
 import Tippy from "@tippyjs/react";
 import copy from "copy-to-clipboard";
-import { forwardRef, useState } from "react";
+import React, { useState } from "react";
 import "tippy.js/dist/tippy.css";
 import { useSignatureState } from "../../context";
 import Button from "../../elements/button";
@@ -16,32 +16,35 @@ interface CopyButtonProps {
   disabled: boolean;
 }
 
-const CopyButton = forwardRef(
-  ({ label, style, format, state, ...rest }: CopyButtonProps, ref) => {
-    const [visible, setVisible] = useState(false);
-    return (
-      <Tippy content="Copied" visible={visible}>
-        <Button
-          type="button"
-          className={style}
-          ref={ref}
-          onClick={() => {
-            copy(state.signatureRef.current.outerHTML, {
-              format,
-            });
-            setVisible(true);
-            setTimeout(() => {
-              setVisible(false);
-            }, 1500);
-          }}
-          {...rest}
-        >
-          {label}
-        </Button>
-      </Tippy>
-    );
-  }
-);
+const CopyButton: React.FC<CopyButtonProps> = ({
+  label,
+  style,
+  format,
+  state,
+  ...rest
+}) => {
+  const [visible, setVisible] = useState(false);
+  return (
+    <Tippy content="Copied" visible={visible}>
+      <Button
+        type="button"
+        className={style}
+        onClick={() => {
+          copy(state.signatureRef.current.outerHTML, {
+            format,
+          });
+          setVisible(true);
+          setTimeout(() => {
+            setVisible(false);
+          }, 1500);
+        }}
+        {...rest}
+      >
+        {label}
+      </Button>
+    </Tippy>
+  );
+};
 
 const Copy: React.FC = () => {
   const { state } = useSignatureState();
