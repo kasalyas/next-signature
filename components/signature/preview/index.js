@@ -1,3 +1,4 @@
+import { arrayOf, node, object, oneOfType } from "prop-types";
 import { useEffect, useRef } from "react";
 import LOCATIONS from "../../../data/locations";
 import { getRegionByCode } from "../../../utils/getRegion";
@@ -138,6 +139,11 @@ const Preview = () => {
       </div>
     </div>
   );
+};
+
+NormalText.propTypes = {
+  children: oneOfType([arrayOf(node), node]).isRequired,
+  extraStyles: object,
 };
 
 export default Preview;

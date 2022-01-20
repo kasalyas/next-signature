@@ -1,3 +1,5 @@
+import { arrayOf, bool, node, oneOfType } from "prop-types";
+
 const Link = ({ children, bigger, strong, brandColor, ...props }) => (
   <a
     style={{
@@ -13,5 +15,12 @@ const Link = ({ children, bigger, strong, brandColor, ...props }) => (
     {children}
   </a>
 );
+
+Link.propTypes = {
+  children: oneOfType([arrayOf(node), node]).isRequired,
+  bigger: bool,
+  strong: bool,
+  brandColor: bool,
+};
 
 export default Link;

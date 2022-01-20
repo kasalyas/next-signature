@@ -1,3 +1,4 @@
+import { arrayOf, node, oneOfType } from "prop-types";
 import { forwardRef } from "react";
 
 const Button = forwardRef(({ children, ...props }, ref) => {
@@ -7,5 +8,9 @@ const Button = forwardRef(({ children, ...props }, ref) => {
     </button>
   );
 });
+
+Button.propTypes = {
+  children: oneOfType([arrayOf(node), node]).isRequired,
+};
 
 export default Button;
