@@ -2,7 +2,11 @@ import Footer from "../footer";
 import Header from "../header";
 import styles from "./layout.module.css";
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div id={styles.app}>
       <Header />

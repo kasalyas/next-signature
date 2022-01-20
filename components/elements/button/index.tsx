@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
-  onClick: (event: React.MouseEvent<HTMLElement>) => void;
   children: React.ReactNode;
 }
 

@@ -13,15 +13,12 @@ type telephoneNumberType = {
   number: string;
 };
 
-interface TelephoneFieldsTypeProps {
+interface TelephoneFieldsProps {
   field: telephoneNumberType;
   index: number;
 }
 
-const TelephoneFields: React.FC<TelephoneFieldsTypeProps> = ({
-  field,
-  index,
-}) => {
+const TelephoneFields: React.FC<TelephoneFieldsProps> = ({ field, index }) => {
   const { dispatch } = useSignatureState();
   return (
     <fieldset>
