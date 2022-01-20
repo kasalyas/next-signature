@@ -1,5 +1,6 @@
 import Tippy from "@tippyjs/react";
 import copy from "copy-to-clipboard";
+import { any, oneOf, string } from "prop-types";
 import { forwardRef, useState } from "react";
 import "tippy.js/dist/tippy.css";
 import { useSignatureState } from "../../context";
@@ -60,6 +61,12 @@ const Copy = () => {
       />
     </div>
   );
+};
+
+CopyButton.propTypes = {
+  label: string,
+  style: any,
+  format: oneOf(["text/plain", "text/html"]),
 };
 
 export default Copy;

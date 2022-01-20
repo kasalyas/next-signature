@@ -1,3 +1,4 @@
+import { number, object } from "prop-types";
 import { useSignatureState } from "../../context";
 import styles from "../../elements/button/button.module.css";
 import telStyles from "./telephone.module.css";
@@ -63,6 +64,11 @@ const TelephoneFields = ({ field, index }) => {
       </div>
     </fieldset>
   );
+};
+
+TelephoneFields.propTypes = {
+  field: object,
+  index: number,
 };
 
 export default TelephoneFields;

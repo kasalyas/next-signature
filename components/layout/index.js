@@ -1,3 +1,4 @@
+import { arrayOf, node, oneOfType } from "prop-types";
 import Footer from "../footer";
 import Header from "../header";
 import styles from "./layout.module.css";
@@ -10,6 +11,10 @@ const Layout = ({ children }) => {
       <Footer />
     </div>
   );
+};
+
+Layout.propType = {
+  children: oneOfType([arrayOf(node), node]).isRequired,
 };
 
 export default Layout;
