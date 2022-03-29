@@ -1,11 +1,6 @@
+import InlineRow from "../../../styles/InlineRow";
 import FormRadio from "../../elements/formRadio";
 import radioStyles from "../../elements/formRadio/formRadio.module.css";
-
-const InlineRow: React.FC = ({ children }) => (
-  <div style={{ display: "flex", gap: "20px", padding: "20px 0" }}>
-    {children}
-  </div>
-);
 
 const Region: React.FC = () => (
   <fieldset>

@@ -1,4 +1,5 @@
 import React from "react";
+import { arrayOf, bool, node, oneOfType } from "prop-types";
 
 interface LinkProps {
   children: React.ReactNode;
@@ -24,5 +25,12 @@ const Link: React.FC<
     {children}
   </a>
 );
+
+Link.propTypes = {
+  children: oneOfType([arrayOf(node), node]).isRequired,
+  bigger: bool,
+  strong: bool,
+  brandColor: bool,
+};
 
 export default Link;
