@@ -2,7 +2,7 @@ import InlineRow from "../../../styles/InlineRow";
 import FormRadio from "../../elements/formRadio";
 import radioStyles from "../../elements/formRadio/formRadio.module.css";
 
-const Marketing: React.FC = () => (
+const Marketing = () => (
   <fieldset>
     <legend>Marketing link</legend>
     <InlineRow>

@@ -19,7 +19,7 @@ interface TelephoneFieldsProps {
   index: number;
 }
 
-const TelephoneFields: React.FC<TelephoneFieldsProps> = ({ field, index }) => {
+const TelephoneFields = ({ field, index }: TelephoneFieldsProps) => {
   const { dispatch } = useSignatureState();
   return (
     <fieldset>

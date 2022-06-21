@@ -8,9 +8,13 @@ interface LinkProps {
   brandColor?: boolean;
 }
 
-const Link: React.FC<
-  LinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
-> = ({ children, bigger, strong, brandColor, ...props }) => (
+const Link = ({
+  children,
+  bigger,
+  strong,
+  brandColor,
+  ...props
+}: LinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
   <a
     style={{
       textDecoration: "underline",

@@ -3,7 +3,7 @@ import { useSignatureState } from "../../context";
 import Button from "../../elements/button";
 import styles from "../../elements/button/button.module.css";
 
-const TelephoneAddNumberButton: React.FC = () => {
+const TelephoneAddNumberButton = () => {
   const { dispatch } = useSignatureState();
   return (
     <div>

@@ -6,12 +6,7 @@ interface FormCheckboxProps {
   id: string;
 }
 
-const FormCheckbox: React.FC<FormCheckboxProps> = ({
-  name,
-  label,
-  id,
-  ...rest
-}) => {
+const FormCheckbox = ({ name, label, id, ...rest }: FormCheckboxProps) => {
   const { state, dispatch } = useSignatureState();
   return (
     <div>

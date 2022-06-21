@@ -17,13 +17,13 @@ interface CopyButtonProps {
   disabled: boolean;
 }
 
-const CopyButton: React.FC<CopyButtonProps> = ({
+const CopyButton = ({
   label,
   style,
   format,
   state,
   ...rest
-}) => {
+}: CopyButtonProps) => {
   const [visible, setVisible] = useState(false);
   return (
     <Tippy content="Copied" visible={visible}>
@@ -47,7 +47,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({
   );
 };
 
-const Copy: React.FC = () => {
+const Copy = () => {
   const { state } = useSignatureState();
   return (
     <div

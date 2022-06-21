@@ -11,7 +11,7 @@ interface FormRadioProps {
   value?: CheckboxTypes;
 }
 
-const FormRadio: React.FC<FormRadioProps> = ({
+const FormRadio = ({
   name,
   label,
   id,
@@ -19,7 +19,7 @@ const FormRadio: React.FC<FormRadioProps> = ({
   variant,
   value,
   ...rest
-}) => {
+}: FormRadioProps) => {
   const { state, dispatch } = useSignatureState();
 
   return (

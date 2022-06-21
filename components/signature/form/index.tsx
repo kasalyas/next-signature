@@ -14,7 +14,7 @@ const options = LOCATIONS.map((location, index) => (
   </option>
 ));
 
-const Form: React.FC = () => {
+const Form = () => {
   const { state } = useSignatureState();
 
   return (

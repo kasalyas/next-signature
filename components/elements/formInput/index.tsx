@@ -8,13 +8,13 @@ interface FormInputProps {
   helpText?: string;
 }
 
-const FormInput: React.FC<FormInputProps> = ({
+const FormInput = ({
   name,
   label,
   required,
   helpText,
   ...rest
-}) => {
+}: FormInputProps) => {
   const { dispatch } = useSignatureState();
   const labelText = required ? (
     <span className={styles.required}>{label}</span>

@@ -2,7 +2,7 @@ import { useSignatureState } from "../../context";
 import TelephoneAddNumberButton from "../telephone/telephoneAddNumber";
 import TelephoneFields from "../telephone/telephoneField";
 
-const TelephoneFieldsArray: React.FC = () => {
+const TelephoneFieldsArray = () => {
   const {
     state: { telephoneNumbers },
   } = useSignatureState();
@@ -15,7 +15,7 @@ const TelephoneFieldsArray: React.FC = () => {
   );
 };
 
-const Telephone: React.FC = () => (
+const Telephone = () => (
   <fieldset>
     <legend>Telephone numbers</legend>
     <TelephoneAddNumberButton />

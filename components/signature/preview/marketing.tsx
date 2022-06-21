@@ -2,7 +2,7 @@ import { getRegionByCode } from "../../../utils/getRegion";
 import { useSignatureState } from "../../context";
 import Link from "../../elements/link";
 
-const Marketing: React.FC = () => {
+const Marketing = () => {
   const { state } = useSignatureState();
   const { bCorpDirectory } = getRegionByCode(state.region);
   return (

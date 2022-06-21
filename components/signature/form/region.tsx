@@ -2,7 +2,7 @@ import InlineRow from "../../../styles/InlineRow";
 import FormRadio from "../../elements/formRadio";
 import radioStyles from "../../elements/formRadio/formRadio.module.css";
 
-const Region: React.FC = () => (
+const Region = () => (
   <fieldset>
     <legend>Region</legend>
     <InlineRow>

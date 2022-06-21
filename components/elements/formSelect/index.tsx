@@ -8,14 +8,14 @@ interface FormSelectProps {
   helpText?: string;
 }
 
-const FormSelect: React.FC<FormSelectProps> = ({
+const FormSelect = ({
   name,
   label,
   required,
   helpText,
   options,
   ...rest
-}) => {
+}: FormSelectProps) => {
   const { dispatch } = useSignatureState();
   const labelText = required ? `${label} *` : label;
   return (

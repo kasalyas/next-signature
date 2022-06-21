@@ -17,11 +17,7 @@ interface NormalTextProps {
   extraStyles?: any;
 }
 
-const NormalText: React.FC<NormalTextProps> = ({
-  children,
-  extraStyles,
-  ...rest
-}) => (
+const NormalText = ({ children, extraStyles, ...rest }: NormalTextProps) => (
   <div
     style={{
       lineHeight: "18px",
@@ -36,7 +32,7 @@ const NormalText: React.FC<NormalTextProps> = ({
   </div>
 );
 
-const Preview: React.FC = () => {
+const Preview = () => {
   const { state, dispatch } = useSignatureState();
   const { name, jobTitle, pronouns } = state;
   const sigRef = useRef(null);
