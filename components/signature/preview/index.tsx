@@ -14,7 +14,7 @@ const Spacer = () => (
 
 interface NormalTextProps {
   children: React.ReactNode;
-  extraStyles?: any;
+  extraStyles?: React.CSSProperties;
 }
 
 const NormalText = ({ children, extraStyles, ...rest }: NormalTextProps) => (
@@ -35,11 +35,12 @@ const NormalText = ({ children, extraStyles, ...rest }: NormalTextProps) => (
 const Preview = () => {
   const { state, dispatch } = useSignatureState();
   const { name, jobTitle, pronouns } = state;
-  const sigRef = useRef(null);
+  const sigRef = useRef<HTMLDivElement>(null);
   const selectedOffice = LOCATIONS.find(
     (office) => office.name === state.office
   );
-  const { websiteLocale } = getRegionByCode(state.region);
+
+  const region = getRegionByCode(state.region);
   useEffect(() => {
     dispatch({
       type: "UPDATE_SIGNATURE_ELEMENT",
@@ -90,11 +91,9 @@ const Preview = () => {
         })}
 
         {state.includeOffice && (
-          <>
-            <NormalText data-testid="selectedOfficeNumber">
-              Office: {selectedOffice.number}
-            </NormalText>
-          </>
+          <NormalText data-testid="selectedOfficeNumber">
+            Office: {selectedOffice?.number}
+          </NormalText>
         )}
 
         <Spacer />
@@ -115,15 +114,17 @@ const Preview = () => {
           </>
         )}
 
-        <div>
-          <Link
-            href={`https://www.kinandcarta.com/${websiteLocale}/careers/`}
-            brandColor={true}
-            bigger={true}
-          >
-            Explore open roles at Kin + Carta Europe
-          </Link>
-        </div>
+        {region?.websiteLocale && (
+          <div>
+            <Link
+              href={`https://www.kinandcarta.com/${region.websiteLocale}/careers/`}
+              brandColor={true}
+              bigger={true}
+            >
+              Explore open roles at Kin + Carta Europe
+            </Link>
+          </div>
+        )}
 
         <Spacer />
 

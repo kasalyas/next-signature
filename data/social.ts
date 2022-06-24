@@ -1,4 +1,17 @@
-const SOCIAL = {
+export type SocialType =
+  | {
+      [k: string]: {
+        links: [
+          {
+            name?: string;
+            url?: string;
+          }
+        ];
+      };
+    }
+  | {};
+
+const SOCIAL: SocialType = {
   eu: {
     links: [
       { name: "Web", url: "https://www.kinandcarta.com/en/" },

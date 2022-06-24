@@ -2,19 +2,10 @@ import { CheckboxTypes } from "./types";
 
 type telephoneType = {
   name: string;
-  number: number;
+  number: string;
 };
 
-type Action = {
-  type: string;
-  field: string;
-  value: string;
-  name: string;
-  index?: number;
-  number?: number;
-};
-
-export interface State {
+export type StateType = {
   name: string;
   jobTitle: string;
   pronouns: string;
@@ -23,10 +14,25 @@ export interface State {
   telephoneNumbers: telephoneType[];
   includeOffice: boolean;
   marketingLink: string;
-  signatureRef: null;
-}
+  // signatureRef: object;
+};
 
-const signatureReducer = (state: State, action: Action) => {
+type ActionType = {
+  type:
+    | "UPDATE_DETAILS"
+    | "ADD_TELEPHONE_NUMBER"
+    | "UPDATE_TELEPHONE_NAME"
+    | "UPDATE_TELEPHONE_NUMBER"
+    | "DELETE_TELEPHONE_ROW"
+    | "UPDATE_SIGNATURE_ELEMENT";
+  field: string;
+  value: string | boolean;
+  name: string;
+  index: number;
+  number: string;
+};
+
+function reducer(state: StateType, action: ActionType) {
   switch (action.type) {
     case "UPDATE_DETAILS":
       return {
@@ -58,14 +64,18 @@ const signatureReducer = (state: State, action: Action) => {
           return number;
         }
       });
-      return { ...state, telephoneNumbers: [...filteredNumbers] };
-    case "UPDATE_SIGNATURE_ELEMENT":
-      return { ...state, signatureRef: action.value };
-    default:
       return {
         ...state,
+        telephoneNumbers: [...filteredNumbers],
       };
+    case "UPDATE_SIGNATURE_ELEMENT":
+      return {
+        ...state,
+        signatureRef: action.value,
+      };
+    default:
+      return state;
   }
-};
+}
 
-export default signatureReducer;
+export default reducer;

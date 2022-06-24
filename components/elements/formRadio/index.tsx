@@ -1,4 +1,5 @@
 import { useSignatureState } from "../../context";
+import { StateType } from "../../reducer";
 import { CheckboxTypes } from "../../types";
 import radioStyles from "./formRadio.module.css";
 
@@ -21,7 +22,6 @@ const FormRadio = ({
   ...rest
 }: FormRadioProps) => {
   const { state, dispatch } = useSignatureState();
-
   return (
     <div>
       <input
@@ -35,8 +35,8 @@ const FormRadio = ({
             value,
           })
         }
-        className={asButton && radioStyles.inputState}
-        checked={state[name] === value}
+        className={asButton ? radioStyles.inputState : ""}
+        checked={state[name as keyof StateType] === value}
         {...rest}
       />
       <label htmlFor={id}>

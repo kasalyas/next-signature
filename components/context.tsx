@@ -1,14 +1,9 @@
 import React, { createContext, useContext, useReducer } from "react";
-import signatureReducer, { State } from "./reducer";
+import reducer, { StateType } from "./reducer";
 
 export const useSignatureState = () => useContext(SignatureStateContext);
 
-const SignatureStateContext = createContext(null);
-
-/**
- * Initial state, this could just as easily come from an api
- */
-const initialState: State = {
+const initialState: StateType = {
   name: "",
   jobTitle: "",
   pronouns: "",
@@ -17,11 +12,22 @@ const initialState: State = {
   telephoneNumbers: [],
   includeOffice: false,
   marketingLink: "none",
-  signatureRef: null,
+  // signatureRef: {current: ''},
+};
+const SignatureStateContext = createContext<{
+  state: StateType;
+  dispatch: React.Dispatch<any>;
+}>({
+  state: initialState,
+  dispatch: () => null,
+});
+
+type SignatureProps = {
+  children: React.ReactNode;
 };
 
-const SignatureState = ({ children }) => {
-  const [state, dispatch] = useReducer(signatureReducer, initialState);
+const GlobalState = ({ children }: SignatureProps) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <SignatureStateContext.Provider value={{ state, dispatch }}>
       {children}
@@ -29,4 +35,4 @@ const SignatureState = ({ children }) => {
   );
 };
 
-export default SignatureState;
+export default GlobalState;

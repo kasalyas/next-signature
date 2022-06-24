@@ -1,5 +1,5 @@
 import React from "react";
-import SOCIAL from "../../../data/social";
+import SOCIAL, { SocialType } from "../../../data/social";
 import Link from "../../elements/link";
 import socialStyle from "./social.module.css";
 
@@ -14,17 +14,26 @@ interface SocialProps {
 }
 
 const Social = ({ region }: SocialProps) => {
-  const { links: socials } = SOCIAL[region?.toLowerCase()];
-  return SOCIAL ? (
-    <div className={socialStyle.inline} data-testid="socialLinks">
-      {socials.map((social, index, socials) => (
-        <span key={index}>
-          <Link href={social.url}>{social.name}</Link>
-          {socials.length - 1 !== index && <Bullet />}
-        </span>
-      ))}
-    </div>
-  ) : null;
+  const { links } = SOCIAL[region?.toLowerCase()];
+
+  if (links) {
+    return (
+      <div className={socialStyle.inline} data-testid="socialLinks">
+        {links.map(
+          (social: { name: string; url: string }, index: number, links: []) => {
+            return (
+              <span key={index}>
+                <Link href={social.url}>{social.name}</Link>
+                {links.length - 1 !== index && <Bullet />}
+              </span>
+            );
+          }
+        )}
+      </div>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Social;

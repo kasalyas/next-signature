@@ -4,16 +4,22 @@ import Link from "../../elements/link";
 
 const Marketing = () => {
   const { state } = useSignatureState();
-  const { bCorpDirectory } = getRegionByCode(state.region);
+
+  const region = getRegionByCode(state.region);
   return (
     <div data-testid="marketingLinks">
-      <Link
-        href={`https://bcorporation.net/directory/${bCorpDirectory}`}
-        strong={true}
-        bigger={true}
-      >
-        B Corp certified
-      </Link>{" "}
+      {region?.bCorpDirectory && (
+        <>
+          <Link
+            href={`https://bcorporation.net/directory/${region.bCorpDirectory}`}
+            strong={true}
+            bigger={true}
+          >
+            B Corp certified
+          </Link>{" "}
+        </>
+      )}
+
       {state.region === "EU" && (
         <>
           |{" "}

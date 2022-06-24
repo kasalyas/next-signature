@@ -7,7 +7,7 @@ interface FormCheckboxProps {
 }
 
 const FormCheckbox = ({ name, label, id, ...rest }: FormCheckboxProps) => {
-  const { state, dispatch } = useSignatureState();
+  const { dispatch } = useSignatureState();
   return (
     <div>
       <input
@@ -21,7 +21,6 @@ const FormCheckbox = ({ name, label, id, ...rest }: FormCheckboxProps) => {
             value: evt.target.checked,
           });
         }}
-        checked={state[name]}
         {...rest}
       />
       <label htmlFor={id}>{label}</label>
