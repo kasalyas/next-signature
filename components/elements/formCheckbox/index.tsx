@@ -1,0 +1,31 @@
+import { useSignatureState } from "../../context";
+
+interface FormCheckboxProps {
+  name: string;
+  label: string;
+  id: string;
+}
+
+const FormCheckbox = ({ name, label, id, ...rest }: FormCheckboxProps) => {
+  const { dispatch } = useSignatureState();
+  return (
+    <div>
+      <input
+        type="checkbox"
+        name={name}
+        id={id}
+        onChange={(evt) => {
+          dispatch({
+            type: "UPDATE_DETAILS",
+            field: name,
+            value: evt.target.checked,
+          });
+        }}
+        {...rest}
+      />
+      <label htmlFor={id}>{label}</label>
+    </div>
+  );
+};
+
+export default FormCheckbox;

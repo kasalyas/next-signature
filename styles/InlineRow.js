@@ -1,7 +1,7 @@
+import styles from "./InlineRow.module.css";
+
 const InlineRow = ({ children }) => (
-  <div style={{ display: "flex", gap: "20px", padding: "20px 0" }}>
-    {children}
-  </div>
+  <div className={styles.flex}>{children}</div>
 );
 
 export default InlineRow;
